@@ -12,8 +12,5 @@
   },
   "dependencies": {
     "three": "^0.139.2"
-  },
-  server: {
-    host: true
   }
 }
