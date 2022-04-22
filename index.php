@@ -1,7 +1,9 @@
 <?php
-include "webconsole.php";
+include "src/main/header.php";
+
 ?>
 
-GUIGZ SIMIAMS MARINUS <3
-<br> LA CLIQUE
-<a href="svm.out" download="svm.out">LE JEU</a>
+  
+<?php
+include "src/main/footer.php";
+?>
