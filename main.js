@@ -72,20 +72,28 @@ function onDocumentKeyDown(event) {
 
 var position = new THREE.Vector3();
 
+function addStar() {
+    const geometry = new THREE.SphereGeometry(0.1, 24, 24)
+    const material = new THREE.MeshStandardMaterial({color: 0xFFFFFF});
+    const star = new THREE.Mesh(geometry, material);
+
+    const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(300));
+
+    star.position.set(x, y, z);
+    scene.add(star);
+}
+
+Array(2000).fill().forEach(addStar);
+
 
 function animate() {
     requestAnimationFrame(animate);
-    octa1.rotation.x += 0.01;
+    // octa1.rotation.x += 0.01;
     // octa1.rotation.y += 0.005;
     // octa1.rotation.z += 0.01;
     // octa1.translateZ(-1);
 
     position.getPositionFromMatrix(octa1.matrixWorld);
-
-
-    camera.position.setZ(position.z + 30);
-    camera.position.setY(position.y);
-    camera.position.setX(position.x);
 
 
     document.addEventListener("keydown", onDocumentKeyDown, false);
