@@ -19,6 +19,7 @@ const renderer = new THREE.WebGLRenderer({
     antialias: true,
 });
 
+
 //moving
 
 
@@ -77,7 +78,7 @@ function addStar() {
     const material = new THREE.MeshStandardMaterial({color: 0xFFFFFF});
     const star = new THREE.Mesh(geometry, material);
 
-    const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(300));
+    const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(200));
 
     star.position.set(x, y, z);
     scene.add(star);
@@ -88,15 +89,8 @@ Array(2000).fill().forEach(addStar);
 
 function animate() {
     requestAnimationFrame(animate);
-    // octa1.rotation.x += 0.01;
-    // octa1.rotation.y += 0.005;
-    // octa1.rotation.z += 0.01;
-    // octa1.translateZ(-1);
 
-    position.getPositionFromMatrix(octa1.matrixWorld);
-
-
-    document.addEventListener("keydown", onDocumentKeyDown, false);
+    octa1.rotation.y += 0.005;
 
     octa2.rotation.x -= 0.01;
     octa2.rotation.y -= 0.005;
