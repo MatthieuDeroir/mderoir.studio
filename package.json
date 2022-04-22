@@ -10,7 +10,11 @@
   "devDependencies": {
     "vite": "^2.9.5"
   },
+  
   "dependencies": {
     "three": "^0.139.2"
+  },
+  "server": {
+    "host": "true"
   }
 }
