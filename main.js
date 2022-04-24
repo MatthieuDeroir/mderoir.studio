@@ -22,6 +22,9 @@ const renderer = new THREE.WebGLRenderer({
 
 //moving
 
+var audio = new Audio('/assets/audio/Lonely-fire.mp3');
+// audio.play();
+
 
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -42,8 +45,14 @@ const geometry2 = new THREE.TetrahedronGeometry(size, 0);
 const material2 = new THREE.MeshStandardMaterial({color: 0x664477});
 const octa2 = new THREE.Mesh(geometry2, material2);
 
-scene.add(octa1);
-scene.add(octa2);
+const geometry3 = new THREE.BoxGeometry(2, 2, 2, 2, 2, 2);
+const material3 = new THREE.MeshStandardMaterial({color: 0xFFFFFF});
+const spacecraft = new THREE.Mesh(geometry3, material3);
+
+spacecraft.position.set(10, 10, 10);
+
+scene.add(octa1, octa2, spacecraft);
+
 
 const pointLight = new THREE.PointLight(0x7700FF);
 pointLight.position.set(10, 10, 10);
@@ -73,18 +82,18 @@ function onDocumentKeyDown(event) {
 
 var position = new THREE.Vector3();
 
+const geometry = new THREE.SphereGeometry(0.1, 24, 24)
+
+
 function addStar() {
-    const geometry = new THREE.SphereGeometry(0.1, 24, 24)
     const material = new THREE.MeshStandardMaterial({color: 0xFFFFFF});
     const star = new THREE.Mesh(geometry, material);
-
     const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(200));
-
     star.position.set(x, y, z);
     scene.add(star);
 }
 
-Array(2000).fill().forEach(addStar);
+Array(5000).fill().forEach(addStar);
 
 
 function animate() {

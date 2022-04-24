@@ -26,6 +26,7 @@ canvas {
     --spacing: 350px;
 
     font-family: brandon-grotesque, sans-serif;
+    color: white;
     font-weight: 400;
     font-style: normal;
 }
